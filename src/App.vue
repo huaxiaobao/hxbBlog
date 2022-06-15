@@ -5,6 +5,14 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  setup() {}
+  setup() {
+    const a = '222'
+    return {
+      a
+    }
+  },
+  created() {
+    console.log(this.a)
+  }
 })
 </script>

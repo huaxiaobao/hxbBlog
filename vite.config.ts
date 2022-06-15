@@ -14,6 +14,7 @@ export default defineConfig({
   plugins: [
     vue(),
     AutoImport({
+      //插件自动引入
       resolvers: [ElementPlusResolver()],
     }),
     Components({
@@ -21,6 +22,7 @@ export default defineConfig({
     })
   ],
   server: {
+    open: true, //自启浏览器端口
     port: 8080, //启动端口
     hmr: {
       host: '127.0.0.1',
