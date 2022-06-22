@@ -4,7 +4,7 @@ module.exports = {
   // 使用 4 个空格缩进
   tabWidth: 2,
   // 不使用 tab 缩进，而使用空格
-  useTabs: false,
+  useTabs: true,
   // 行尾需要有分号
   semi: false,
   // 使用单引号代替双引号
@@ -20,7 +20,7 @@ module.exports = {
   // jsx 标签的反尖括号需要换行
   jsxBracketSameLine: false,
   // 箭头函数，只有一个参数的时候，也需要括号
-  arrowParens: 'always',
+  arrowParens: 'avoid',
   // 每个文件格式化的范围是文件的全部内容
   rangeStart: 0,
   rangeEnd: Infinity,
@@ -33,6 +33,9 @@ module.exports = {
   // 根据显示样式决定 html 要不要折行
   htmlWhitespaceSensitivity: 'css',
   // 换行符使用 lf
-  endOfLine: 'auto'
+  endOfLine: 'auto',
+  multiLine: {
+
+  }
 }
 

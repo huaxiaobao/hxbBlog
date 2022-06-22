@@ -4,13 +4,13 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Login',
+    name: 'dashboard',
     meta: {
-      title: '登录',
-      keepAlive: true,
-      requireAuth: false
+      title: '首页',
+      // keepAlive: true,
+      // requireAuth: false
     },
-    component: () => import('@/views/index.vue')
+    component: () => import('@/views/dashboard/index.vue')
   }
 ]
 

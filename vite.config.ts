@@ -4,11 +4,14 @@ import * as path from 'path';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 export default defineConfig({
   resolve: {
     //设置别名
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'src'),
+      'components': path.resolve(__dirname, 'src/components'),
+      'imagess': path.resolve(__dirname, '@/image')
     }
   },
   plugins: [

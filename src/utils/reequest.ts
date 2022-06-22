@@ -53,25 +53,26 @@ service.interceptors.response.use(
     //   return res
     // }
     // if the custom code is not 0, it is judged as an error.
-    if (res.Code === 200 || res.Code === 201 || res.success === 'True') {
-      return res
-    } else if (res.Code === 205) { // 参数校验错误
-      Notification.warning({
-        title: '提示',
-        position: 'bottom-right',
-        message: res.Msg || '请完善信息',
-        duration: 3 * 1000
-      })
-      return Promise.reject(new Error(res.Msg || 'Error'))
-    } else if (res.Code === 206) { // 登录错误
-      Notification.warning({
-        title: '提示',
-        position: 'bottom-right',
-        message: res.Msg || '登录失败！',
-        duration: 3 * 1000
-      })
-      return Promise.reject(new Error(res.Msg || 'Error'))
-    }
+    // if (res.Code === 200 || res.Code === 201 || res.success === 'True') {
+    //   return res
+    // } else if (res.Code === 205) { // 参数校验错误
+    //   Notification.warning({
+    //     title: '提示',
+    //     position: 'bottom-right',
+    //     message: res.Msg || '请完善信息',
+    //     duration: 3 * 1000
+    //   })
+    //   return Promise.reject(new Error(res.Msg || 'Error'))
+    // } else if (res.Code === 206) { // 登录错误
+    //   Notification.warning({
+    //     title: '提示',
+    //     position: 'bottom-right',
+    //     message: res.Msg || '登录失败！',
+    //     duration: 3 * 1000
+    //   })
+    //   return Promise.reject(new Error(res.Msg || 'Error'))
+    // }
+    return res
   }
   },
   error => {
