@@ -4,7 +4,7 @@ import * as path from 'path';
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 export default defineConfig({
   resolve: {
     //设置别名
@@ -14,6 +14,7 @@ export default defineConfig({
       'imagess': path.resolve(__dirname, '@/image')
     }
   },
+
   plugins: [
     vue(),
     AutoImport({
@@ -22,6 +23,11 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver()],
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(process.cwd(), 'src/icons')],
+      symbolId: 'icon-[dir]-[name]',
+
     })
   ],
   server: {

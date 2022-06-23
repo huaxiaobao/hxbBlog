@@ -7,6 +7,7 @@
 			<!-- 左边侧边栏 -->
 			<SiderBar />
 			<div class="main-box">路由渲染区域</div>
+			<footer class="copy-right">我是网站备案部分</footer>
 		</div>
 	</div>
 </template>
