@@ -1,13 +1,17 @@
 import axios from 'axios'
-import { Notification } from 'element-plus'
+const processEnv = import.meta.env //获取系统环境变量
+import { ElNotification } from 'element-plus'
 // import store from '@/store'
 // import { getToken } from '@/utils/auth'
-
+// console.log(Notification)
 // create an axios instance
+
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
-  // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 50000 // request timeout
+  // baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
+  baseURL: processEnv.VITE_VUE_APP_BASE_API, // url = base url + request url
+  withCredentials: true, // send cookies when cross-domain requests
+  timeout: 50000, // request timeout
+
 })
 
 // request interceptor
@@ -44,7 +48,17 @@ service.interceptors.response.use(
    */
   response => {
     const res = response.data
-    // console.log(res)
+    console.log(res)
+    if (res.code === 400) {
+      ElNotification.warning({
+        title: '提示',
+        position: 'top-right',
+        message: res.Msg || '错误',
+        duration: 3 * 1000
+      })
+    }
+
+
 
     // const headers = response.headers
     // if (headers['content-type'] === 'application/vnd.ms-excel') {
@@ -73,16 +87,16 @@ service.interceptors.response.use(
     //   return Promise.reject(new Error(res.Msg || 'Error'))
     // }
     return res
-  }
+    // }
   },
   error => {
     console.log('err' + error) // for debug
-    Notification.error({
-      title: '提示',
-      position: 'bottom-right',
-      message: error.message,
-      duration: 5 * 1000
-    })
+    // Notification.error({
+    //   title: '提示',
+    //   position: 'bottom-right',
+    //   message: error.message,
+    //   duration: 5 * 1000
+    // })
     return Promise.reject(error)
   }
 )

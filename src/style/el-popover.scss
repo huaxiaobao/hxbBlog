@@ -1,0 +1,15 @@
+/**
+*解决 el-popover 插入类名 样式不生效问题
+* 自行定义相关的类名
+*
+*
+*
+***/
+
+// 留言  表情 popver
+.remark-wrap-popper{
+  &.el-popover.el-popper.is-light {
+    padding: 0;
+  }
+}
+

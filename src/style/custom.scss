@@ -1,3 +1,40 @@
+//背景色
+.bg-white{
+  background-color: #fff;
+}
+
+
+//通用字体
+.ft-hxb{
+  font-family: 'hxb';
+}
+.ft-cus{
+  font-family: 'cus';
+}
+//通用颜色
+.color-primary{
+  color: $primary;
+}
+
+//浮动
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//flex 布局
 .flex {
   display: flex;
 }

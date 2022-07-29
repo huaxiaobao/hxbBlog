@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "api/*": [
+        "src/api/*"
+      ]
+    },
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",

@@ -1,140 +1,120 @@
 <template>
-	<div class="app-main">
-		<layerbox class="cards">
-			<CustomTitle title="标题" />
-			<CustomInfoBox />
-		</layerbox>
+	<div class="dashbord">
+
 	</div>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, ref } from 'vue'
-import layerbox from 'components/layerbox.vue'
-import CustomTitle from 'components/CustomTitle.vue'
-import CustomInfoBox from 'components/CustomInfoBox.vue'
-export default defineComponent({
-	setup() {
-		const a = ref('0')
-		interface Tree {
-			label: string
-			children?: Tree[]
-		}
+// import layerbox from 'components/layerbox.vue'
+// import CustomTitle from 'components/CustomTitle.vue'
+// import CustomInfoBox from 'components/CustomInfoBox.vue'
 
-		const handleNodeClick = (data: Tree) => {
-			console.log(data)
+const props = defineProps({
+	isShow: {
+		type: Object,
+		default: () => {
+			return {}
 		}
+	}
+})
 
-		const data: Tree[] = [
+interface Tree {
+	label: string,
+	children?: Tree[]
+}
+const handleNodeClick = (data: Tree) => {
+	console.log(data)
+}
+
+const data: Tree[] = [
+	{
+		label: 'Level one 1',
+		children: [
 			{
-				label: 'Level one 1',
+				label: 'Level two 1-1',
 				children: [
 					{
-						label: 'Level two 1-1',
-						children: [
-							{
-								label: 'Level three 1-1-1'
-							}
-						]
-					}
-				]
-			},
-			{
-				label: 'Level one 2',
-				children: [
-					{
-						label: 'Level two 2-1',
-						children: [
-							{
-								label: 'Level three 2-1-1'
-							}
-						]
-					},
-					{
-						label: 'Level two 2-2',
-						children: [
-							{
-								label: 'Level three 2-2-1'
-							}
-						]
-					}
-				]
-			},
-			{
-				label: 'Level one 3',
-				children: [
-					{
-						label: 'Level two 3-1',
-						children: [
-							{
-								label: 'Level three 3-1-1'
-							}
-						]
-					},
-					{
-						label: 'Level two 3-2',
-						children: [
-							{
-								label: 'Level three 3-2-1'
-							}
-						]
+						label: 'Level three 1-1-1'
 					}
 				]
 			}
 		]
-
-		const defaultProps = {
-			children: 'children',
-			label: 'label'
-		}
-		const isHighlight = false
-		return {
-			a,
-			handleNodeClick,
-			data,
-			defaultProps,
-			isHighlight
-		}
 	},
-	components: { layerbox, CustomTitle, CustomInfoBox },
-	props: {
-		isShow: {
-			type: Object,
-			default: () => {
-				return {}
+	{
+		label: 'Level one 2',
+		children: [
+			{
+				label: 'Level two 2-1',
+				children: [
+					{
+						label: 'Level three 2-1-1'
+					}
+				]
+			},
+			{
+				label: 'Level two 2-2',
+				children: [
+					{
+						label: 'Level three 2-2-1'
+					}
+				]
 			}
-		}
+		]
 	},
-	created() {
-		console.log(this.isShow)
-		this.a = '555'
-		console.log(this.a)
-		this.getTableList(1, '2')()
-	},
-	methods: {
-		getTableList(val: number, aaa: string): Function {
-			const a = val
-			console.log(val, aaa)
-			return () => {
-				console.log(a)
+	{
+		label: 'Level one 3',
+		children: [
+			{
+				label: 'Level two 3-1',
+				children: [
+					{
+						label: 'Level three 3-1-1'
+					}
+				]
+			},
+			{
+				label: 'Level two 3-2',
+				children: [
+					{
+						label: 'Level three 3-2-1'
+					}
+				]
 			}
-		},
-		btnClick() {
-			this.isHighlight = false
-			console.log(this.isHighlight)
-		}
-		// sum(s: number): Function {
-		// 	const a = s
-		// 	return a
-		// }
+		]
 	}
-})
+]
+
+const isHighlight = ref(false)
+const defaultProps = {
+	children: 'children',
+	label: 'label'
+}
+
+const getTableList = (val: number, aaa: string): Function => {
+	const a = val
+	console.log(defaultProps, data, props)
+
+	return () => {
+		console.log(a)
+	}
+}
+
+
+const btnClick = () => {
+	isHighlight.value = false
+	console.log(isHighlight.value)
+}
+
+
 </script>
 <style lang="scss" scoped>
 .app-main {
-	height: 100vh;
+	// height: 100vh;
 	padding: 8px;
 	background: #f7f8fa;
 	box-sizing: border-box;
 }
+
 .cards {
 	width: 800px;
 	// height: 600px;

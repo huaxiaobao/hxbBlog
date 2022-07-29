@@ -6,23 +6,26 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 export default defineConfig({
+  publicDir: '/',
   resolve: {
     //设置别名
     alias: {
       '@': path.resolve(__dirname, 'src'),
       'components': path.resolve(__dirname, 'src/components'),
-      'imagess': path.resolve(__dirname, '@/image')
+      'api': path.resolve(__dirname, 'src/api')
     }
   },
-
+  define: {
+    'process.env': process.env
+  },
   plugins: [
     vue(),
     AutoImport({
       //插件自动引入
-      resolvers: [ElementPlusResolver()],
+      // resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      // resolvers: [ElementPlusResolver()],
     }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
