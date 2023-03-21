@@ -9,7 +9,7 @@
     </el-upload>
 
     <el-upload class="avatar-uploader-btn ml-32" :action="URLAction" :on-success="handleAvatarSuccess"
-      :before-upload="beforeAvatarUpload" :with-credentials="true">
+      :before-upload="beforeAvatarUpload" :with-credentials="true" :show-file-list="false">
       <el-button type="primary">修 改 头 像</el-button>
     </el-upload>
   </div>
@@ -18,16 +18,18 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { ElMessage, ElLoading } from 'element-plus'
-import { Plus } from '@element-plus/icons-vue'
+
 //import { updateAvatar } from '@/api/login'
 import type { UploadProps } from 'element-plus'
 import { userInfoStore } from '@/store/user'
+import { baseUrl } from '@/utils/custom'
 //获取 store
 const store = userInfoStore()
 
 //上传地址 
-const URLAction = ref('http://localhost:4000/updateInfo/updateAvatar')
-const imageUrl = ref(`http://localhost:4000${store.avatar}`)
+
+const URLAction = import.meta.env.AVATAR
+const imageUrl = ref(baseUrl + `${store.avatar}`)
 
 const handleAvatarSuccess: UploadProps['onSuccess'] = (
   res: any,
@@ -48,9 +50,6 @@ const handleAvatarSuccess: UploadProps['onSuccess'] = (
     store.avatar = res.data
     laoding.close()
   }, 1000)
-
-
-
 }
 
 const beforeAvatarUpload: UploadProps['beforeUpload'] = (rawFile) => {

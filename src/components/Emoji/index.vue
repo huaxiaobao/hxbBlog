@@ -1,8 +1,8 @@
 <template>
   <!-- 表情组件 -->
 
-  <el-popover placement="right-start" :width="344" trigger="click" popper-class="remark-wrap-popper"
-    style="padding: 0;">
+  <el-popover placement="right-start" :width="344" trigger="click" popper-class="remark-wrap-popper" style="padding: 0;"
+    :teleported="false">
     <template #reference>
       <span class="cuson-p fs-22">😀</span>
       <!-- <el-button style="margin-right: 16px">Click to activate</el-button> -->
@@ -21,14 +21,13 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, computed } from 'vue';
+import { ref } from 'vue';
 import { VuemojiPicker, EmojiClickEventDetail } from 'vuemoji-picker'
 //事件
 const emit = defineEmits(['emojiChange'])
 
 //表情
 const handleEmojiClick = (detail: EmojiClickEventDetail) => {
-  console.log(detail)
   emit('emojiChange', detail)
 }
 const isDark = ref(false)

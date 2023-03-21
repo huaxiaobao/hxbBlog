@@ -1,0 +1,17 @@
+/* el-input 无边框 */
+.input-noBored .el-input .el-input__wrapper {
+  border: none !important;
+  border-bottom: 1px solid #dcdfe6 !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  padding: 16px 10px 16px 0 !important;
+
+  &.is-focus {
+    border-bottom-color: #409eff !important;
+  }
+
+  .el-input__prefix {
+    margin-right: 12px;
+    user-select: none;
+  }
+}

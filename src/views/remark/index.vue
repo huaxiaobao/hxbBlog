@@ -4,38 +4,35 @@
     <layer-box>
       <CustomTitle title="留言" />
       <p class="mb-16">欢迎小主 前来留言！</p>
-      <el-input v-model="textarea" type="textarea" placeholder="欢迎留言" :autosize="{ minRows: 10, maxRows: 50 }" />
-
-      <div class="flex mt-16">
-        <div class="flex-1">
-          <Emoji @emojiChange="emojiChange" />
-        </div>
+      <Comment @textareaChange="textareaChange" ref="remarkComment" :textarea="textarea">
         <el-button type="primary" class="btn" @click="remarkSubmit">提交留言</el-button>
-      </div>
+      </Comment>
     </layer-box>
 
+    <layer-box class="mt-16 mb-16">
+      <CustomTitle title="评论" />
+      <RemarkVue ref="remarkData" />
+    </layer-box>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, computed } from 'vue';
-import Emoji from 'components/Emoji/index.vue'
+import { reactive, ref, computed, onMounted } from 'vue';
 import { userInfoStore } from '@/store/user';
 import { ElMessage } from 'element-plus';
 import { remarkAdd } from 'api/remark'
+import Comment from 'components/Comment/index.vue'
+import RemarkVue from './components/Remark.vue';
 const store = userInfoStore()
 //留言框
-const textarea = ref('')
-
-//接收表情信息
-const emojiChange = (emojiData: any) => {
-  console.log(emojiData)
-  textarea.value += emojiData.unicode
+let textarea = ref('')
+const remarkComment = ref<InstanceType<typeof Comment> | null>(null)
+const remarkData = ref<InstanceType<typeof RemarkVue> | null>(null)
+const textareaChange = (val: any) => {
+  textarea.value = val
 }
-
 //提交评论
 const remarkSubmit = () => {
-  console.log(store.avatar, store.id)
   if (!textarea.value.trim()) {
     ElMessage({
       type: 'error',
@@ -54,21 +51,33 @@ const remarkSubmit = () => {
   //新增评论
   addRemark()
 }
-
+//新增留言
 const addRemark = () => {
   remarkAdd({
-    data: textarea.value
+    remark: textarea.value,
+    createTime: new Date().toLocaleString()
   })
     .then((res: any) => {
       ElMessage({
         type: 'success',
         message: res.Msg
       })
-
       textarea.value = ''
+      // remarkComment.value.textarea = ''
+      remarkComment.value.textarea = ''
+
+      //加载留言信息
+      remarkData.value?.getRemarkListData()
     })
-    .catch()
+    .catch((err) => { })
 }
+
+//获取留言信息
+
+
+
+
+
 
 </script>
 

@@ -1,9 +1,6 @@
 <template>
-	<div
-		class="custom-info-box"
-	
-	>
-	<!-- 	:style="{
+	<div class="custom-info-box">
+		<!-- 	:style="{
 			'border-left-color': borderColorObj[borderColor]
 		}" -->
 		1111
@@ -15,7 +12,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
 	name: 'CustomInfoBox',
 	setup() {
-		const borderColorObj:object= {
+		const borderColorObj: object = {
 			primary: 'blue'
 		}
 		return {

@@ -1,0 +1,134 @@
+/* 时间周详情 */
+.time-line-item {
+  margin-bottom: 56px;
+  user-select: none;
+
+  .time-wrap {
+    background-color: #fff;
+    border: 4px solid #e6a23c;
+    width: 120px;
+    padding: 8px;
+    border-radius: 20px;
+    position: relative;
+    left: calc(50% - 20px);
+    text-align: center;
+    margin-bottom: 36px;
+    font-family: "hxb";
+    color: #606266;
+    font-size: 22px;
+
+    &:hover {
+      background-color: #e6a23c;
+      color: #fff;
+    }
+  }
+
+  &:nth-child(2n) {
+    .time-wrap {
+      left: calc(50% - 100px);
+    }
+
+    .time-details-wrap {
+      left: 0;
+
+      li {
+        &::before {
+          left: calc(100% - 6px);
+        }
+
+        &::after {
+          left: calc(100% - 6px);
+        }
+      }
+    }
+
+    .time-stamp {
+      text-align: right;
+    }
+  }
+
+  .time-details-wrap {
+    position: relative;
+    left: calc(50%);
+    margin: 0;
+    width: calc(50%);
+    padding: 0;
+    transition: height linear 0.25 !important;
+
+    li {
+      list-style: none;
+      position: relative;
+      padding: 0 20px;
+      margin-bottom: 36px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        left: -6px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        left: -6px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid #e6a23c;
+        cursor: pointer;
+      }
+
+      &:hover {
+        .content {
+          color: #e6a23c !important;
+        }
+
+        .time-stamp {
+          color: #f56c6c;
+        }
+
+        &::before {
+          background: #e6a23c;
+        }
+      }
+    }
+  }
+
+  .content {
+    color: #303133;
+    letter-spacing: 4px;
+    text-indent: 2em;
+    font-family: "fzktk";
+    font-size: 17px;
+  }
+
+  .time-stamp {
+    color: #909399;
+    // color: #303133;
+    font-size: 15px;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+}
+
+fade-enter-active,
+.fade-leave-active {
+  transition: height ease-in-out 1s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  // opacity: 0;
+  transition: height ease-in-out 1s;
+}

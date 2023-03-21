@@ -29,23 +29,22 @@
 </template>
 
 <script lang="ts" setup>
-import CustomTitle from '@/components/CustomTitle.vue'
+
 import UploadAvatar from '@/components/UploadAvatar/index.vue'
 import { reactive, ref, computed, watch } from 'vue'
-import type { FormInstance, FormRules, UploadProps, UploadUserFile } from 'element-plus'
-import { Plus } from '@element-plus/icons-vue'
+import type { FormInstance, FormRules } from 'element-plus'
+
 import { ElMessage, ElLoading } from 'element-plus'
 import { userNameValid, passWordValid } from '@/utils/validator'
 import { userInfoStore } from '@/store/user'
 import { updateName } from '@/api/login'
-import EditPasswordVue from '@/Layout/NavHeader/EditPassword.vue'
+import EditPasswordVue from '@/components/EditorPassWord/EditPassword.vue'
 
 //信息初始化
 const store = userInfoStore()
 
 //路由监听
 const showCompoennt = computed(() => {
-  console.log(store.username)
   return Boolean(store.username)
 })
 watch(showCompoennt, () => {

@@ -1,0 +1,58 @@
+/* 按钮样式 */
+@mixin colorBtnPlain($color) {
+  background: #fff;
+  border-color:$color;
+  color:$color;
+  &:hover {
+    color: #fff;
+    border-color:$color;
+    background:$color;
+    color: #fff;
+  }
+  &.is-disabled {
+    background-color: #fff;
+    border-color: #e6ebf5;
+    color: #c0c4cc;
+  }
+}
+
+.el-button{
+  &::before {
+    margin-right: 3px;
+  }
+  &.is-loading:before {
+    margin-right: 0;
+  }
+  &.el-button--primary.is-plain {
+    @include colorBtnPlain($--color-primary)
+  }
+  &.el-button--danger.is-plain {
+   @include colorBtnPlain($--color-danger)
+  }
+}
+
+
+
+
+
+
+// .el-button {
+//   &::before {
+//       margin-right: 3px;
+//   }
+//   &.is-loading:before {
+//       margin-right: 0;
+//   }
+//   &.el-button--primary
+//   // &.el-button--small {
+//   //     height: 32px;
+//   //     line-height: 32px;
+//   //     font-size: 14px;
+//   //     padding: 0 15px;
+//   //     border-radius: 2px;
+//   // }
+//   // .svg-icon {
+//   //     margin-right: 3px;
+//   //     vertical-align: -0.15em;
+//   // }
+// }

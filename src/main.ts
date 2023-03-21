@@ -11,10 +11,11 @@ import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register';
 import SvgIcon from "./icons/index.vue";
 import './permission'
-
+import 'animate.css'
 
 // 创建vue实例
 const app = createApp(App)
+
 
 // 挂载router
 app.use(router)
@@ -24,9 +25,13 @@ app.use(store)
 
 //全局组件
 app.use(components)
+
 //样式框架
 app.use(ElementPlus) //在vite config 中 已经进行了对应的配置
 
 app.component("svg-icon", SvgIcon)
+//全局挂在基础路径
+
+
 // 挂载实例
 app.mount('#app')

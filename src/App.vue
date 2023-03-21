@@ -1,7 +1,5 @@
 <template>
-	<keep-alive>
-		<router-view />
-	</keep-alive>
+	<router-view />
 </template>
 <script setup lang="ts" >
 import { onMounted } from 'vue';
@@ -12,7 +10,7 @@ const loginChecked = () => {
 	loginStatus()
 		.then((res: any) => {
 			const data = res.data
-			if (data.username) {
+			if (data && data.username) {
 				//存储vuex 用户信息
 				store.SET_USERINFO(data)
 			} else {
@@ -24,6 +22,6 @@ const loginChecked = () => {
 onMounted(() => {
 	loginChecked()
 })
-// import { defineComponent } from 'vue'
+
 </script>
 

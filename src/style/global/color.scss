@@ -1,0 +1,79 @@
+$gray: #f7f8fa;
+$primary: #409eff;
+$dark: #909399;
+
+// base color
+$blue: #324157;
+$light-blue: #3a71a8;
+$red: #c03639;
+$pink: #e65d6e;
+$green: #30b08f;
+$tiffany: #4ab7bd;
+$yellow: #fec171;
+$panGreen: #30b08f;
+
+// sidebar
+$menuText: rgba(51, 51, 51, 1);
+$menuActiveText: #ffffff;
+$subMenuActiveText: #1672db;
+$menuHoverText: rgba(32, 182, 249, 1);
+$menuIconColor: #177aea;
+
+$menuBg: #ffffff;
+$menuHover: #ffffff;
+
+$subMenuBg: #ffffff;
+$subMenuHover: #ffffff;
+
+$sideBarWidth: 210px;
+$sideLogoHeight: 162px; //侧栏展开时logo高度
+$sideLogoHeightCollpase: 42px; //侧栏收起时logo高度
+$headNavHeight: 60px; //顶部导航条高度
+
+$box-title-color: #1da1ed;
+$--color-success: green;
+$--color-primary: #1da1ed;
+$--color-danger: #ff4949;
+// $--color-info: #1E1E1E;
+$--color-font-red: #d25242;
+$table-th-color: rgba(51, 51, 51, 1);
+
+$normal-spaceing: 8px;
+$text-primary-color: rgba(51, 51, 51, 1);
+$tab-primary-backgroud: #1672db;
+$tab-gray-backgroud: #e8e8e8;
+$tab-border-right: #ffca29;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+  sideLogoHeight: $sideLogoHeight;
+  sideLogoHeightCollpase: $sideLogoHeightCollpase;
+  box-title-color: $box-title-color;
+  color-success: $--color-success;
+  color-primary: $--color-primary;
+  table-th-color: $table-th-color;
+  color-danger: $--color-danger;
+}
+
+//通用颜色
+.color-primary {
+  color: $primary;
+}
+
+//背景色
+.bg-white {
+  background-color: #fff;
+}
+
+.t-dark {
+  color: $dark;
+}

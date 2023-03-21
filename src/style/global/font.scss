@@ -1,0 +1,72 @@
+@font-face {
+  font-family: hxb;
+  src: url("@/fonts/hxb.ttf");
+}
+@font-face {
+  font-family: cus;
+  src: url("@/fonts/custom.ttf");
+}
+@font-face {
+  font-family: FZKTK;
+  src: url("@/fonts/FZKTK.TTF");
+}
+
+//通用字体
+.ft-hxb {
+  font-family: "hxb";
+}
+
+.ft-cus {
+  font-family: "cus";
+}
+.ft-fzktk {
+  font-family: "FZKTK";
+}
+
+/* 文字超出裁剪 */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis; //取值clip为裁剪
+  white-space: nowrap;
+}
+
+/* 首行空两个 */
+.t-indent {
+  text-indent: 2em;
+}
+/* 彩虹字体 */
+.ranbow {
+  background: -webkit-linear-gradient(
+    45deg,
+    lightpink,
+    lightgreen,
+    pink,
+    orange,
+    #e03997,
+    #e54d42,
+    #9c26b0,
+    #fdefac,
+    lightblue
+  );
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: 10s linear infinite;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: ran;
+}
+
+@keyframes ran {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 2000px 0;
+  }
+}

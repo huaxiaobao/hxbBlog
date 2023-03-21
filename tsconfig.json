@@ -9,6 +9,7 @@
         "src/api/*"
       ]
     },
+    "experimentalDecorators": true,
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -33,7 +34,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
-  ],
+, "src/utils/data.js"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

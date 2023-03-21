@@ -1,0 +1,65 @@
+.app-main {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  //页面背景图
+  &::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    content: "";
+    opacity: 0.06;
+    background: url("http://img.xjh.me/random_img.php?type=bg&ctype=acg&return=302") center/cover no-repeat;
+    filter: grayscale(100%);
+  }
+
+  /* 主要内容区域 */
+  // .main-content {
+  // }
+
+  /* 左侧边栏 */
+  .side-bar {
+    position: sticky;
+    top: 96px;
+    width: 300px;
+    overflow: auto;
+    max-height: calc(100vh - 96px);
+    z-index: 1;
+  }
+  .side-bar-left {
+    margin-right: 32px;
+  }
+
+  /* 右侧边栏 */
+  .side-bar-right {
+    margin-left: 32px;
+  }
+}
+
+/* footer */
+.footer {
+  margin-top: 12vh !important;
+  margin-bottom: 4vh !important;
+  padding-bottom: 10px;
+  color: #999;
+  text-align: center;
+  font-weight: 100;
+  font-size: 14px;
+  font-family: "Noto Sans SC" !important;
+}
+
+/* 1200以上适配 */
+@media screen and (min-width: 1200px) {
+  .main-content {
+    width: 980px;
+    max-width: 980px;
+  }
+
+  .footer {
+    width: 980px;
+    margin: auto;
+  }
+}

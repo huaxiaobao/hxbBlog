@@ -1,20 +1,6 @@
-@import "./color.scss";
-@import "./custom.scss";
-@import "./main.scss";
-@import "./layout.scss";
-@import './el-popover.scss';
-body {
-  font-size: 14px;
-  color: #303133;
-}
-p {
-  margin: 0;
-}
-@font-face{
-	font-family:hxb;
-    src:url("@/fonts/hxb.ttf");
-}
-@font-face{
-	font-family:cus;
-    src:url("@/fonts/custom.ttf");
-}
+@import "./global/index.scss";
+@import "./element-ui/index.scss";
+@import "./header/index.scss";
+@import "./main/index.scss";
+
+@import "./login/index.scss";

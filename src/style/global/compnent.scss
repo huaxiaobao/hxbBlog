@@ -1,0 +1,48 @@
+/* 常用组件样式 */
+
+//常用的 h3 标题
+.c-h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.text-c {
+  text-align: center;
+}
+
+.cuson-p {
+  cursor: pointer;
+}
+
+//自适应高度
+.height-100 {
+  height: 100%;
+}
+
+/* 常用的阴影盒子白色背景盒子 */
+.box-white-shadow {
+  padding: 10px 30px 30px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px 10px rgb(220 220 220 / 30%);
+  border-radius: 8px;
+  margin-bottom: 48px;
+}
+
+/* 只有下边框的 el-form */
+.el-form-bottom-border .el-input .el-input__wrapper {
+  border: none !important;
+  border-bottom: 1px solid #dcdfe6 !important;
+  box-shadow: none !important;
+  border-radius: 0;
+  color: #409eff;
+  font-weight: bold;
+  &.is-focus {
+    border-bottom-color: #409eff !important;
+  }
+
+  .el-input__prefix {
+    margin-right: 12px;
+    user-select: none;
+  }
+}

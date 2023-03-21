@@ -1,0 +1,86 @@
+//浮动
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+//常用样式
+@for $i from 0 to 50 {
+  $sizei: $i * 5;
+  $widthi: $i * 20;
+  .pd-#{$i} {
+    padding: #{$i}px !important;
+  }
+  .pd-l-#{$i} {
+    padding-left: #{$i}px !important;
+  }
+  .pd-t-#{$i} {
+    padding-top: #{$i}px !important;
+  }
+  .pd-b-#{$i} {
+    padding-bottom: #{$i}px !important;
+  }
+  .pd-r-#{$i} {
+    padding-right: #{$i}px !important;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}px !important;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}px !important;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}px !important;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}px !important;
+  }
+  .fs-#{$i} {
+    font-size: #{$i}px !important;
+  }
+  .c-wd-#{$i} {
+    width: #{$widthi}px !important;
+  }
+  .c-m-#{$i} {
+    margin: #{$sizei}px !important;
+  }
+  .c-p-#{$i} {
+    padding: #{$sizei}px !important;
+  }
+  .c-ml-#{$i} {
+    margin-left: #{$sizei}px !important;
+  }
+  .c-mr-#{$i} {
+    margin-right: #{$sizei}px !important;
+  }
+  .c-mb-#{$i} {
+    margin-bottom: #{$sizei}px !important;
+  }
+  .c-mt-#{$i} {
+    margin-top: #{$sizei}px !important;
+  }
+  .c-pl-#{$i} {
+    padding-left: #{$sizei}px !important;
+  }
+  .c-pr-#{$i} {
+    padding-right: #{$sizei}px !important;
+  }
+  .c-pb-#{$i} {
+    padding-bottom: #{$sizei}px !important;
+  }
+  .c-pt-#{$i} {
+    padding-top: #{$sizei}px !important;
+  }
+}

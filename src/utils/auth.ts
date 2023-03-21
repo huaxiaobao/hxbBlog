@@ -24,10 +24,10 @@ export function getLocalStore() {
   return localStorage.getItem('userInfo')
 }
 
-export function setLocalStore(data) {
+export function setLocalStore(data: any) {
   return localStorage.setItem('userInfo', JSON.stringify(data))
 }
 
-export function removeLocalStore() {
-  return Cookies.remove(TokenKey)
-}
+// export function removeLocalStore() {
+//   return Cookies.remove(TokenKey)
+// }

@@ -1,0 +1,69 @@
+$stick-back-color: hsla(0, 0%, 100%, 0.8);
+
+//头部
+.header {
+  .sticky-navigator {
+    .navigator-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      //logo
+      .blog-logo {
+        display: none;
+        position: absolute;
+        top: calc((100% - 36px) / 2);
+        left: calc(50% - 540px);
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        z-index: 99999;
+      }
+
+      //导航栏
+      .menu-bar {
+        // flex: 1;
+        width: 980px;
+        margin: auto;
+      }
+
+      //个人信息
+      .login-wrap {
+        display: none;
+        position: absolute;
+        top: calc(100% - 42px);
+        right: 160px;
+        z-index: 99999;
+      }
+    }
+
+    //粘性定位
+    &.sticky-active {
+      width: 100%;
+      background: $stick-back-color;
+      box-shadow: 0 1px 3px rgb(26 26 26 / 10%);
+      box-sizing: border-box;
+      padding: 0;
+      width: 100%;
+      height: 64px !important;
+      padding-bottom: 6px;
+      &:hover {
+        background-color: #fff;
+      }
+      .blog-logo {
+        display: block;
+      }
+
+      //导航栏颜色适配
+      .menu-bar {
+        .el-menu-navigator,
+        .el-menu-item {
+          background-color: transparent;
+        }
+      }
+      .login-wrap {
+        display: block;
+      }
+    }
+  }
+}
